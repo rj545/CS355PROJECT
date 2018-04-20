@@ -13,8 +13,8 @@ exports.getAll = function(callback) {
 };
 
 exports.insert = function(params, callback) {
-    var query = 'INSERT INTO consoles (console_title) VALUES (?);';
-    var queryData = [params.console_title];
+    var query = 'INSERT INTO consoles (console_title, controllers) VALUES (?, ?);';
+    var queryData = [params.console_title,params.controllers];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -23,7 +23,7 @@ exports.insert = function(params, callback) {
 
 exports.getinfo = function(console_id, callback) {
     var query = 'CALL consoles_getinfo(?)';
-    var queryData = [console_id];
+    var queryData = [console_id, controllers];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);

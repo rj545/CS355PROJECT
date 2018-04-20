@@ -14,7 +14,7 @@ exports.getAll = function(callback) {
 
 exports.insert = function(params, callback) {
     var query = 'INSERT INTO games (game_title, rating) VALUES (?, ?);';
-    var queryData = [params.game_title, rating];
+    var queryData = [params.game_title,params.rating];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
