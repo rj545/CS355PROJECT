@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consoles - View All</title>
+</head>
+<body>
+<h1>Consoles</h1>
+<a href="/consoles/add" > Add New Game Console</a> <br/>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Game Console</th>
+        <th>Controllers</th>
+        <th> Actions </th>
+    </tr>
+    <tr>
+        <% for(var i=0; consoles.length > i; i++ ) { %>
+        <td><%= consoles[i].console_id%></td>
+        <td><%= consoles[i].console_title %></td>
+        <td><%= consoles[i].controllers%></td>
+        <td>
+            <a href='/consoles/edit/?console_id=<%= consoles[i].console_id %>'>
+                Edit
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

@@ -5,7 +5,7 @@ var db = require('./db_connection');
 var connection = mysql.createConnection(db.config);
 
 exports.getAll = function(callback) {
-    var query = 'SELECT * FROM skill;';
+    var query = 'SELECT * FROM consoles;';
 
     connection.query(query, function(err, result) {
         callback(err, result);
@@ -13,19 +13,17 @@ exports.getAll = function(callback) {
 };
 
 exports.insert = function(params, callback) {
-
-    var query = 'INSERT INTO skill (skill_name, description) VALUES (?, ?)';
-
-    var queryData = [params.skill_name, params.description];
+    var query = 'INSERT INTO consoles (console_title) VALUES (?);';
+    var queryData = [params.console_title];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
     });
 };
 
-exports.getinfo = function (skill_id, callback) {
-    var query = 'CALL skill_getinfo(?)';
-    var queryData = [skill_id];
+exports.getinfo = function(console_id, callback) {
+    var query = 'CALL consoles_getinfo(?)';
+    var queryData = [console_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);

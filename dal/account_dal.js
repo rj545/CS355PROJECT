@@ -14,9 +14,9 @@ exports.getAll = function(callback) {
 
 exports.insert = function(params, callback) {
 
-    var query = 'INSERT INTO account (email) VALUES (?)';
+    var query = 'INSERT INTO account (email, first_name, last_name) VALUES (?, ?, ?)';
 
-    var queryData = [params.email];
+    var queryData = [params.email, params.first_name, params.last_name];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);

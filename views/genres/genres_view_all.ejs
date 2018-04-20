@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Genres - View All</title>
+</head>
+<body>
+<h1>Genres</h1>
+<a href="/genres/add" > Add New Genre</a> <br/>
+
+<table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th> Actions </th>
+            </tr>
+    <tr>
+        <% for(var i=0; genres.length > i; i++ ) { %>
+        <td><%= genres[i].genre_id%></td>
+        <td><%= genres[i].genre %></td>
+        <td>
+            <a href='/genres/edit/?genre_id=<%= genres[i].genre_id %>'>
+                Edit
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

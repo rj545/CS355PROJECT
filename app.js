@@ -11,6 +11,10 @@ var company = require('./routes/company');
 var skill = require('./routes/skill');
 var account = require('./routes/account');
 var address = require('./routes/address');
+var games = require('./routes/games');
+var genres = require('./routes/genres');
+var consoles = require('./routes/consoles');
+var gameinfo = require('./routes/gameinfo');
 var app = express();
 
 // view engine setup
@@ -31,6 +35,10 @@ app.use('/company', company);
 app.use('/skill', skill);
 app.use('/account', account);
 app.use('/address', address);
+app.use('/games', games);
+app.use('/genres', genres);
+app.use('/consoles', consoles);
+app.use('/gameinfo', gameinfo);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

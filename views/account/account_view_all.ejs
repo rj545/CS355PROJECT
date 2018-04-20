@@ -9,12 +9,17 @@
 <table border="1">
     <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>email</th>
+        <th>first_name</th>
+        <th>last_name</th>
     </tr>
     <% for(var i = 0; i < accounts.length; i++) { %>
     <tr>
         <td><%= accounts[i].account_id %></td>
         <td><%= accounts[i].email %></td>
+        <td><%= accounts[i].first_name%></td>
+        <td><%= accounts[i].last_name%></td>
+    </tr>
         <% } %>
 </table>
 </body>

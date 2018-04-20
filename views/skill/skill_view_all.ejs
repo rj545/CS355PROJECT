@@ -10,12 +10,16 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>description</th>
     </tr>
     <% for(var i = 0; i < skills.length; i++) { %>
     <tr>
         <td><%= skills[i].skill_id %></td>
         <td><%= skills[i].skill_name %></td>
+        <td><%= skills[i].description %></td>
+    </tr>
         <% } %>
+
 </table>
 </body>
 </html>

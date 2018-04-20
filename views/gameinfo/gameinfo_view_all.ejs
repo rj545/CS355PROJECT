@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GameInfo - View All</title>
+</head>
+<body>
+<h1>Game Information</h1>
+<a href="/gameinfo/add" > Add New Game Information </a> <br/>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Era</th>
+        <th>Maker</th>
+        <th> Actions </th>
+    </tr>
+    <% for(var i=0; i< gameinfo.length; i++ ) { %>
+    <tr>
+        <td><%= gameinfo[i].gameinfo_id%></td>
+        <td><%= gameinfo[i].era %></td>
+        <td><%= gameinfo[i].maker %></td>
+        <td>
+            <a href='/gameinfo/edit/?gameinfo_id=<%= gameinfo[i].gameinfo_id %>'>
+                Edit
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>
