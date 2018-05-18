@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EXISTS statement - View All</title>
+</head>
+<body>
+<h1>Query using EXISTS </h1>
+<table border="1">
+    <tr>
+        <th>Game Title</th>
+        <th>Rating</th>
+    </tr>
+    <tr>
+        <% for(var i=0; games.length > i; i++ ) { %>
+        <td><%= games[i].game_title %></td>
+        <td><%= games[i].rating %></td>
+        <td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

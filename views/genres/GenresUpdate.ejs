@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Genre - Update</title>
+</head>
+<body>
+<h1>Update Genre</h1>
+<form action="/genres/update" method="get">
+    <input type="hidden"
+           id="genre_id"
+           name="genre_id"
+           value="<%= genres.genre_id%>"
+    />
+    Genre:<input
+            id="genre"
+            name="genre"
+            type="text"
+            value="<%= genres.genre %>"
+    />
+    <br/>
+    <input type="submit" />
+
+</form>
+</body>
+</html>

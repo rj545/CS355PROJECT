@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Console - Update</title>
+</head>
+<body>
+<h1>Update Console</h1>
+<form action="/consoles/update" method="get">
+    <input type="hidden"
+           id="console_id"
+           name="console_id"
+           value="<%= consoles.console_id%>"
+    />
+    Console Name:<input
+            id="console_title"
+            name="console_title"
+            type="text"
+            value="<%= consoles.console_title %>"
+    />
+    Controllers: <input
+            id="controllers"
+            name="controllers"
+            type="text"
+            value="<%= consoles.controllers %>"
+    />
+    <br/>
+    <input type="submit" />
+
+</form>
+</body>
+</html>

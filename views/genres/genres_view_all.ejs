@@ -5,13 +5,21 @@
 </head>
 <body>
 <h1>Genres</h1>
-<a href="/genres/add" > Add New Genre</a> <br/>
 
+<% if(locals.was_successful) { %>
+<div>
+    <div id="message">
+        <%= genres.genre %> was succesfully saved.
+    </div>
+</div>
+<% } %>
+<a href="/genres/add" > Add New Genre</a> <br/>
 <table border="1">
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th> Actions </th>
+            <th> Delete </th>
             </tr>
     <tr>
         <% for(var i=0; genres.length > i; i++ ) { %>
@@ -20,6 +28,10 @@
         <td>
             <a href='/genres/edit/?genre_id=<%= genres[i].genre_id %>'>
                 Edit
+            </a>
+        </td>
+            <td>
+            <a href='/genres/delete/?genre_id=<%= genres[i].genre_id %>'>Delete
             </a>
         </td>
     </tr>

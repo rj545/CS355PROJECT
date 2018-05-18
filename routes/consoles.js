@@ -10,7 +10,7 @@ router.get('/all', function(req, res, next){
             res.send(err);
         } else {
             console.log(result);
-            res.render('consoles/consoles_view_all', {consoles: result});
+            res.render('consoles/consoles_view_all', {consoles: result, was_successful: req.query.was_successful});
         }
     })
 });
@@ -42,8 +42,7 @@ router.get('/edit', function(req, res){
     consoles_dal.getinfo(req.query.console_id, function(err, result) {
         if(err) { res.send(err); }
         else {
-            res.render('consoles/ConsolesUpdate',
-                {consoless: result[0][0], consoles_result: result[1]});
+            res.render('consoles/ConsolesUpdate', {consoles: result[0][0]});
         }
     });
 });
@@ -55,6 +54,17 @@ router.get('/update', function(req, res) {
         }
         else {
             res.redirect(302, '/consoles/all');
+        }
+    });
+});
+
+router.get('/delete', function(req, res) {
+    consoles_dal.delete(req.query.console_id, function(err, console_id) {
+        if(err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/consoles/all?console_id=' + console_id + '&was_successful=1');
         }
     });
 });

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ORDER BY statement - View All</title>
+</head>
+<body>
+<h1>Query using ORDER BY </h1>
+<table border="1">
+    <tr>
+        <th> ID </th>
+        <th>Game Title</th>
+        <th>Rating</th>
+    </tr>
+    <tr>
+        <% for(var i=0; games.length > i; i++ ) { %>
+        <td><%= games[i].games_id%></td>
+        <td><%= games[i].game_title %></td>
+        <td><%= games[i].rating %></td>
+        <td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

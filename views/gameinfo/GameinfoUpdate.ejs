@@ -1,0 +1,29 @@
+<head>
+    <title>Game Info - Update</title>
+</head>
+<body>
+<h1>Update Game Info</h1>
+<form action="/gameinfo/update" method="get">
+    <input type="hidden"
+           id="gameinfo_id"
+           name="gameinfo_id"
+           value="<%= gameinfo.gameinfo_id%>"
+    />
+    Game Era:<input
+            id="era"
+            name="era"
+            type="text"
+            value="<%= gameinfo.era %>"
+    />
+    Maker: <input
+            id="maker"
+            name="maker"
+            type="text"
+            value="<%= gameinfo.maker %>"
+    />
+    <br/>
+    <input type="submit" />
+
+</form>
+</body>
+</html>

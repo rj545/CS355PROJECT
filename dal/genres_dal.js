@@ -29,3 +29,41 @@ exports.getinfo = function(genre_id, callback) {
         callback(err, result);
     });
 };
+
+exports.update = function(params, callback) {
+    var query = 'UPDATE genres SET genre = ? WHERE genre_id = ?';
+
+    var queryData = [params.genre, params.genre_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback (err, result);
+    });
+};
+
+var NewGenresInsert = function(genre_id, genresIdArray, callback) {
+
+    var query = 'INSERT INTO genres (genre_id) VALUES ?';
+
+    var NewGenres = [];
+
+    if (genresIdArray.constructor === Array) {
+        for (var i = 0; i < genresIdArray.length; i++) {
+            NewGenres.push([genre_id, genresIdArray[i]]);
+        }
+    }
+    else {
+        NewGenres.push([genre_id, genreIdArray]);
+    }
+    connection.query(query, [NewGenres], function (err, result) {
+        callback(err, result);
+    });
+};
+
+exports.delete = function(genre_id, callback) {
+    var query = 'DELETE FROM genres WHERE genre_id = ?';
+    var queryData = [genre_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, genre_id);
+    });
+};

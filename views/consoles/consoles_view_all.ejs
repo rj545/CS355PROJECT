@@ -5,6 +5,13 @@
 </head>
 <body>
 <h1>Consoles</h1>
+<% if(locals.was_successful) { %>
+<div>
+    <div id="message">
+        <%= consoles.console_title %> was succesfully deleted.
+    </div>
+</div>
+<% } %>
 <a href="/consoles/add" > Add New Game Console</a> <br/>
 
 <table border="1">
@@ -13,6 +20,7 @@
         <th>Game Console</th>
         <th>Controllers</th>
         <th> Actions </th>
+        <th> Delete </th>
     </tr>
     <tr>
         <% for(var i=0; consoles.length > i; i++ ) { %>
@@ -22,6 +30,10 @@
         <td>
             <a href='/consoles/edit/?console_id=<%= consoles[i].console_id %>'>
                 Edit
+            </a>
+        </td>
+        <td>
+            <a href='/consoles/delete/?console_id=<%= consoles[i].console_id %>'>Delete
             </a>
         </td>
     </tr>

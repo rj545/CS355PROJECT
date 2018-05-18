@@ -5,6 +5,13 @@
 </head>
 <body>
 <h1>Games</h1>
+<% if(locals.was_successful) { %>
+<div>
+    <div id="message">
+        <%= games.game_title %> was succesfully deleted.
+    </div>
+</div>
+<% } %>
 <a href="/games/add" > Add New Game Title</a> <br/>
 
 <table border="1">
@@ -13,6 +20,7 @@
         <th>Game Title</th>
         <th>Rating</th>
         <th> Actions </th>
+        <th> Delete </th>
     </tr>
     <tr>
         <% for(var i=0; games.length > i; i++ ) { %>
@@ -20,8 +28,11 @@
         <td><%= games[i].game_title %></td>
         <td><%= games[i].rating %></td>
         <td>
-            <a href='/games/edit/?games_id=<%= games[i].games_id %>'>
-                Edit
+            <a href='/games/edit/?games_id=<%= games[i].games_id %>'>Edit
+            </a>
+        </td>
+        <td>
+            <a href='/games/delete/?games_id=<%= games[i].games_id %>'>Delete
             </a>
         </td>
     </tr>

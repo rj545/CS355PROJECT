@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Games - Update</title>
+</head>
+<body>
+<h1>Update Games</h1>
+<form action="/games/update" method="get">
+    <input type="hidden"
+           id="games_id"
+           name="games_id"
+           value="<%= games.games_id%>"
+    />
+    Game Name:<input
+            id="game_title"
+            name="game_title"
+            type="text"
+            value="<%= games.game_title %>"
+    />
+    Rating: <input
+            id="rating"
+            name="rating"
+            type="text"
+            value="<%= games.rating %>"
+    />
+    <br/>
+    <input type="submit" />
+
+</form>
+</body>
+</html>
