@@ -1,0 +1,40 @@
+-- PROJECT PRCOEDURES BELOW
+-- games
+DROP PROCEDURE IF EXISTS games_getinfo;
+DELIMITER //
+    CREATE PROCEDURE games_getinfo(_games_id int)
+      BEGIN
+        SELECT * FROM games WHERE games_id=_games_id;
+      END //
+DELIMITER ;
+CALL games_getinfo(3);
+
+-- genres
+DROP PROCEDURE IF EXISTS genres_getinfo;
+DELIMITER //
+    CREATE PROCEDURE genres_getinfo(_genre_id int)
+      BEGIN
+        SELECT * FROM genres WHERE genre_id=_genre_id;
+      END //
+DELIMITER ;
+CALL genres_getinfo(3);
+
+-- consoles
+DROP PROCEDURE IF EXISTS consoles_getinfo;
+DELIMITER //
+    CREATE PROCEDURE consoles_getinfo(_console_id int)
+      BEGIN
+        SELECT * FROM consoles WHERE console_id=_console_id;
+      END //
+DELIMITER //
+CALL consoles_getinfo(3);
+
+-- game info
+DROP PROCEDURE IF EXISTS gameinfo_getinfo;
+DELIMITER //
+    CREATE PROCEDURE gameinfo_getinfo(_gameinfo_id int)
+      BEGIN
+        SELECT * FROM gameinfo WHERE gameinfo_id=_gameinfo_id;
+      END //
+DELIMITER //
+CALL gameinfo_getinfo(3);
