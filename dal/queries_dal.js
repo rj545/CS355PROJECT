@@ -58,3 +58,15 @@ exports.query6 = function(callback) {
         callback(err, result);
     });
 };
+
+// JOIN / GROUP BY / HAVING / DERIVED
+exports.query7 = function(callback) {
+    var query = 'SELECT game_title, rating, count(console_id) AS worked_for \n' +
+        'FROM games g \n' +
+        'JOIN game_console ON g.games_id=game_console.games_id \n' +
+        'GROUP BY g.game_title \n' +
+        'HAVING count(worked_for)<= 1;';
+    connection.query(query, function(err, result) {
+        callback(err, result);
+    });
+};

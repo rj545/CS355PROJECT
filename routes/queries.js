@@ -80,4 +80,17 @@ router.get('/query6', function(req, res, next){
     });
 });
 
+// // JOIN / GROUP BY / HAVING / DERIVED
+router.get('/query7', function(req, res, next){
+    queries_dal.query7(function(err, result) {
+        if(err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            console.log(result);
+            res.render('queries/query7_view_all', {games: result})
+        }
+    });
+});
+
 module.exports = router;
