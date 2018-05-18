@@ -1,0 +1,158 @@
+USE rrojas_db;
+SET sql_safe_update=0;
+
+-- GAMES TABLE
+CREATE TABLE games (games_id INT AUTO_INCREMENT PRIMARY KEY, game_title VARCHAR (256) UNIQUE, rating VARCHAR(256));
+
+INSERT INTO games (game_title, rating)
+VALUES ('overwatch', 'T');
+INSERT INTO games (game_title, rating)
+VALUES ('fortnite', 'E');
+INSERT INTO games (game_title, rating)
+VALUES ('battlefield', 'M');
+INSERT INTO games (game_title, rating)
+VALUES ('rocket league', 'E');
+INSERT INTO games (game_title, rating)
+VALUES ('outlast', 'M');
+INSERT INTO games (game_title, rating)
+VALUES ('skyrim', 'T');
+INSERT INTO games (game_title, rating)
+VALUES ('assassins creed', 'M'); 
+
+SELECT * FROM games;
+DROP TABLE IF EXISTS games;
+
+Select * FROM games
+ORDER BY game_title;
+
+SELECT * FROM games
+ORDER BY games_id;
+
+-- GENRES TABLE
+CREATE TABLE genres (genre_id INT AUTO_INCREMENT PRIMARY KEY, genre VARCHAR(256));
+
+INSERT INTO genres (genre)
+VALUES ('shooter'); 
+INSERT INTO genres (genre)
+VALUES ('battle royale');
+INSERT INTO genres (genre)
+VALUES ('action');
+INSERT INTO genres (genre)
+VALUES ('sport');
+INSERT INTO genres (genre)
+VALUES ('horror');
+INSERT INTO genres (genre)
+VALUES ('rpg');
+INSERT INTO genres (genre)
+VALUES ('adventure');
+
+SELECT * FROM genres;
+DROP TABLE IF EXISTS genres;
+
+SELECT * FROM genres
+ORDER BY genre;
+
+SELECT * FROM genres
+ORDER BY genre_id;
+
+-- info table
+CREATE TABLE gameinfo (gameinfo_id INT AUTO_INCREMENT PRIMARY KEY, era VARCHAR(256), maker VARCHAR(256) UNIQUE);
+
+INSERT INTO gameinfo (era, maker)
+VALUES ('2016', 'blizzard');
+INSERT INTO gameinfo (era, maker)
+VALUES ('2017', 'epic');
+INSERT INTO gameinfo (era, maker)
+VALUES ('2016', 'ea');
+INSERT INTO gameinfo (era, maker)
+VALUES ('2015', 'psyonix');
+INSERT INTO gameinfo (era, maker)
+VALUES ('2014', 'red barrel');
+INSERT INTO gameinfo (era, maker)
+VALUES ('2012', 'bethesda');
+INSERT INTO gameinfo (era, maker)
+VALUES ('2017', 'ubisoft');
+
+SELECT * FROM gameinfo;
+DROP TABLE IF EXISTS gameinfo;
+
+SELECT * FROM gameinfo
+ORDER BY maker;
+
+-- game_genre table
+CREATE TABLE game_genre (games_id INT, genre_id INT, 
+Foreign KEY (games_id) REFERENCES games (games_id) ON DELETE CASCADE,
+FOREIGN KEY (genre_id) REFERENCES genres (genre_id) ON DELETE CASCADE);
+
+INSERT INTO game_genre (games_id, genre_id)
+VALUES (1, 1);
+INSERT INTO game_genre (games_id, genre_id)
+VALUES (2, 2);
+INSERT INTO game_genre (games_id, genre_id)
+VALUES (3, 3);
+INSERT INTO game_genre (games_id, genre_id)
+VALUES (4, 4);
+INSERT INTO game_genre (games_id, genre_id)
+VALUES (5, 5);
+INSERT INTO game_genre (games_id, genre_id)
+VALUES (6, 6);
+INSERT INTO game_genre (games_id, genre_id)
+VALUES (7, 7);
+
+SELECT * FROM game_genre;
+DROP TABLE IF EXISTS game_genre;
+
+
+-- VALUES HAVE TO BE SAME ON HERE
+
+
+-- CONSOLES TABLE
+CREATE TABLE consoles (console_id INT AUTO_INCREMENT PRIMARY KEY, console_title VARCHAR(256) UNIQUE, controllers varchar(256));
+
+INSERT INTO consoles (console_title, controllers)
+VALUES ('xbox', '2');
+INSERT INTO consoles (console_title, controllers)
+VALUES ('pc', '2');
+INSERT INTO consoles (console_title, controllers)
+VALUES ('playstation', '3');
+INSERT INTO consoles (console_title, controllers)
+VALUES ('wii', '4');
+INSERT INTO consoles (console_title, controllers)
+VALUES ('ios', '1');
+INSERT INTO consoles (console_title, controllers)
+VALUES ('arcade', '2');
+INSERT INTO consoles (console_title, controllers)
+VALUES ('android', '1');
+
+SELECT * FROM consoles;
+DROP TABLE IF EXISTS consoles;
+
+SELECT * FROM consoles
+ORDER BY console_title;
+
+SELECT * FROM consoles
+ORDER BY console_id;
+
+
+-- game_console table
+CREATE TABLE game_console (games_id INT, console_id INT, 
+Foreign KEY (games_id) REFERENCES games (games_id) ON DELETE CASCADE,
+FOREIGN KEY (console_id) REFERENCES consoles (console_id) ON DELETE CASCADE);
+
+INSERT INTO game_console (games_id, console_id)
+VALUES (1, 1);
+INSERT INTO game_console (games_id, console_id)
+VALUES (2, 2);
+INSERT INTO game_console (games_id, console_id)
+VALUES (3,3);
+INSERT INTO game_console (games_id, console_id)
+VALUES (4, 4);
+INSERT INTO game_console (games_id, console_id)
+VALUES (5, 5);
+INSERT INTO game_console (games_id, console_id)
+VALUES (6, 6);
+INSERT INTO game_console (games_id, console_id)
+VALUES (7, 7);
+
+SELECT * FROM game_console;
+DROP TABLE IF EXISTS game_console;
